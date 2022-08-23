@@ -1,4 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, HttpStatus, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  HttpCode,
+  HttpStatus,
+  Query
+} from '@nestjs/common';
 import { PokemonService } from './pokemon.service';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
 import { UpdatePokemonDto } from './dto/update-pokemon.dto';
@@ -22,7 +33,7 @@ export class PokemonController {
   }
 
   @Get( ':term' )
-  findOne(@Param( 'term' ) term: string) {
+  findOne( @Param( 'term' ) term: string ) {
     return this.pokemonService.findOne( term );
   }
 

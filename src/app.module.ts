@@ -13,6 +13,7 @@ import { JoiValidationSchema } from './config/joi.validation';
 @Module( {
 
   imports: [
+    
     ConfigModule.forRoot( {
       load: [ EnvConfiguration ],
       validationSchema: JoiValidationSchema
@@ -22,7 +23,7 @@ import { JoiValidationSchema } from './config/joi.validation';
       rootPath: join( __dirname, '..', 'public' ),
     } ),
 
-    MongooseModule.forRoot( process.env.MONGO_DB ),
+    MongooseModule.forRoot( process.env.MONGODB ),
 
     PokemonModule,
 
@@ -31,8 +32,4 @@ import { JoiValidationSchema } from './config/joi.validation';
     SeedModule
   ],
 })
-export class AppModule {
-
-  constructor() {}
-
-}
+export class AppModule {}

@@ -7,10 +7,15 @@ import { PokemonController } from './pokemon.controller';
 import { Pokemon, PokemonSchema } from './entities/pokemon.entity';
 
 @Module({
+
   controllers: [ PokemonController ],
+
   providers: [ PokemonService ],
+  
   imports: [
+
     ConfigModule,
+
     MongooseModule.forFeature( [
       {
         name: Pokemon.name,
@@ -18,6 +23,8 @@ import { Pokemon, PokemonSchema } from './entities/pokemon.entity';
       }
     ] )
   ],
+
   exports: [ MongooseModule ]
 })
+
 export class PokemonModule {}

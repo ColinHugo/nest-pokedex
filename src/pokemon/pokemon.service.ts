@@ -1,6 +1,12 @@
-import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  InternalServerErrorException,
+  NotFoundException
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { InjectModel } from '@nestjs/mongoose';
+
 import { isValidObjectId, Model } from 'mongoose';
 
 import { PaginationDto } from 'src/common/dto/pagination.dto';
@@ -20,7 +26,7 @@ export class PokemonService {
     private readonly configService: ConfigService,
 
   ) {
-    this.defaultLimit = configService.get< number >( 'DEFAULT_LIMIT' );
+    this.defaultLimit = configService.get< number >( 'defaultLimit' );
   }
 
   async create( createPokemonDto: CreatePokemonDto ) {
